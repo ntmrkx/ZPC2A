@@ -1,2 +1,6 @@
 # ZPC2A
-start of smthn incredible
+We goon
+we code 
+we bust
+we love pavel
+uHLIK JE GAY
