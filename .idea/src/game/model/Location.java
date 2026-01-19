@@ -2,12 +2,13 @@ package game.model;
 
 import java.util.HashMap;
 
-public class Room {
+public class Location {
     private String name;
     private String description;
     private HashMap<String, String> exits;
+    private String id;
 
-    public Room(String name, String description, HashMap<String, String> exits) {
+    public Location(String name, String description, HashMap<String, String> exits) {
         this.name = name;
         this.description = description;
         this.exits = exits;
@@ -23,5 +24,9 @@ public class Room {
 
     public HashMap<String, String> getExits() {
         return exits;
+    }
+
+    public String getId() {
+        return id;
     }
 }
