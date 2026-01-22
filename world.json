@@ -1,0 +1,74 @@
+{
+  "startLocationId": "hall",
+  "locations": [
+    {
+      "id": "hall",
+      "name": "Hall",
+      "description": "such a long hall, where your story starts or finishes",
+      "exits": {
+        "north": "archive",
+        "east": "servers",
+        "npc": true
+      }
+    },
+    {
+      "id": "archive",
+      "name": "Archive",
+      "description": "all secrets, all treasures and disappointments",
+      "exits": {
+        "south": "hall",
+        "npc": true
+      }
+    },
+    {
+      "id": "servers",
+      "name": "Servers",
+      "description": "boo..brr..hmm...",
+      "exits": {
+        "west": "hall",
+        "east": "store",
+        "npc": false
+
+      }
+    },
+    {
+      "id": "store",
+      "name": "Store",
+      "description": "whatever you need..just ask",
+      "exits": {
+        "west": "servers",
+        "south": "office",
+        "npc": false
+      }
+    },
+    {
+      "id": "backrooms",
+      "name": "Backrooms",
+      "description": "who knows what is here..? maybe nothing",
+      "exits": {
+        "west": "office",
+        "south": "luba",
+        "npc": true
+      }
+    },
+    {
+      "id": "office",
+      "name": "Office",
+      "description": "feels like you spent your whole life here..huh?",
+      "exits": {
+        "east": "backrooms",
+        "north": "store",
+        "npc": false
+      }
+    },
+    {
+      "id": "luba",
+      "name": "Luba",
+      "description": "your biggest fear, your biggest win",
+      "exits": {
+        "north": "backrooms",
+        "npc": true
+      }
+    }
+  ]
+}
