@@ -12,9 +12,9 @@ public class HelpCommand implements Command {
         this.processor = processor;
     }
 
-    @Override public String name() { return "help"; }
+    public String name() { return "help"; }
 
-    @Override public String help() { return "Writes commands list"; }
+    public String help() { return "Writes commands list"; }
 
     @Override
     public String getName() {

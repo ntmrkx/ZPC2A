@@ -5,9 +5,9 @@ import game.command.Command;
 
 public class InventoryCommand implements Command {
 
-    @Override public String name() { return "inventory"; }
+    public String name() { return "inventory"; }
 
-    @Override public String help() { return "writes items in inventory"; }
+    public String help() { return "writes items in inventory"; }
 
     @Override
     public String getName() {

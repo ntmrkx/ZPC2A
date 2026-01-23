@@ -6,9 +6,9 @@ import game.model.Item;
 
 public class UseCommand implements Command {
 
-    @Override public String name() { return "use"; }
+    public String name() { return "use"; }
 
-    @Override public String help() { return "Use item: use <item> [cil]"; }
+    public String help() { return "Use item: use <item> [cil]"; }
 
     @Override
     public String getName() {

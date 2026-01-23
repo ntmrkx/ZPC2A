@@ -6,9 +6,9 @@ import game.model.NPC;
 
 public class TalkCommand implements Command {
 
-    @Override public String name() { return "talk"; }
+    public String name() { return "talk"; }
 
-    @Override public String help() { return "Talk to NPC: talk <name>"; }
+    public String help() { return "Talk to NPC: talk <name>"; }
 
     @Override
     public String getName() {

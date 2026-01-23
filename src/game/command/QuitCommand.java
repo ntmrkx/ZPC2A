@@ -5,9 +5,9 @@ import game.command.Command;
 
 public class QuitCommand implements Command {
 
-    @Override public String name() { return "finish"; }
+    public String name() { return "finish"; }
 
-    @Override public String help() { return "finishes the game"; }
+    public String help() { return "finishes the game"; }
 
     @Override
     public String getName() {

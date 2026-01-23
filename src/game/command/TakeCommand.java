@@ -6,9 +6,9 @@ import game.model.Item;
 
 public class TakeCommand implements Command {
 
-    @Override public String name() { return "take"; }
+    public String name() { return "take"; }
 
-    @Override public String help() { return "Take an item: take <name>"; }
+    public String help() { return "Take an item: take <name>"; }
 
     @Override
     public String getName() {

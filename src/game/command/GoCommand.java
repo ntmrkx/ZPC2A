@@ -6,9 +6,8 @@ import game.Location;
 
 public class GoCommand implements Command {
 
-    @Override public String name() { return "go"; }
-
-    @Override public String help() { return "Move: go <direction>"; }
+    public String name() { return "go"; }
+    public String help() { return "Move: go <direction>"; }
 
     @Override
     public String getName() {
@@ -28,9 +27,9 @@ public class GoCommand implements Command {
         }
 
         Location current = game.getCurrentLocation();
-        Location next = current.getExit(arg.toLowerCase());
+        Location next = current.moveOrStay(arg);
 
-        if (next == null) {
+        if (next == current) {
             System.out.println("You cannot go this way.");
             return;
         }
