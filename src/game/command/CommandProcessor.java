@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class CommandProcessor {
 
-    private final Map<String, Command> commands = new HashMap<>();
+    private  Map<String, Command> commands = new HashMap<>();
 
     public void register(Command command) {
         commands.put(command.getName(), command);
@@ -19,7 +19,7 @@ public class CommandProcessor {
         Command command = commands.get(parsed[0]);
 
         if (command == null) {
-            System.out.println("Neznámý příkaz. Napiš 'help'.");
+            System.out.println("unknown command! try to type 'help'");
             return;
         }
 

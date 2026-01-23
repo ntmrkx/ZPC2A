@@ -30,7 +30,7 @@ public class GameData {
 
             //Zde ověřujeme, zdali soubor existuje
             if (is == null) {
-                throw new IllegalStateException("Nenalezen resource: " + resourcePath +
+                throw new IllegalStateException("resource not found: " + resourcePath +
                         " (zkontrolujte, že soubor je v src/main/resources).");
             }
 
