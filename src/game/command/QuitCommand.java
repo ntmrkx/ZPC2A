@@ -1,0 +1,27 @@
+package game.command;
+
+import game.Game;
+import game.command.Command;
+
+public class QuitCommand implements Command {
+
+    @Override public String name() { return "finish"; }
+
+    @Override public String help() { return "finishes the game"; }
+
+    @Override
+    public String getName() {
+        return "";
+    }
+
+    @Override
+    public String getDescription() {
+        return "";
+    }
+
+    @Override
+    public void execute(Game game, String arg) {
+        System.out.println("The end.");
+        game.stop();
+    }
+}
