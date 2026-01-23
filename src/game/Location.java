@@ -1,55 +1,66 @@
 package game;
 
-import java.util.*;
-import game.model.Item;
-import game.model.NPC;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import game.model.*;
 
 public class Location {
-
+    private String id;
     private String name;
     private String description;
-    private String id;
 
-    private Map<String, Location> exits = new HashMap<>();
-    private List<Item> items = new ArrayList<>();
-    private List<NPC> npcs = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
 
-    public Location(String name, String description) {
-        this.name = name.toLowerCase();
-        this.description = description;
-    }
+    private final List<NPC> npcs = new ArrayList<>();
 
+    private Map<String, String> exits = new HashMap<>();
+
+    private Map<String, Location> linkedExits = new HashMap<>();
+
+    public Location() { }
+
+    public String getId() { return id; }
+    public String getName() { return name; }
     public String getDescription() { return description; }
 
-    public void addExit(String direction, Location location) {
-        exits.put(direction.toLowerCase(), location);
+    public Map<String, String> getExitIds() { return exits; }
+
+    public void setLinkedExits(Map<String, Location> linkedExits) {
+        this.linkedExits = linkedExits;
     }
 
     public Location getExit(String direction) {
-        return exits.get(direction.toLowerCase());
+        if (direction == null) return null;
+        return linkedExits.get(direction.toLowerCase());
     }
 
-    public void addItem(Item item) { items.add(item); }
+
+    public Location moveOrStay(String direction) {
+        Location next = getExit(direction);
+        return (next != null) ? next : this;
+    }
 
     public Item takeItem(String name) {
-        for (Item i : items) {
-            if (i.getName().equals(name)) {
-                items.remove(i);
-                return i;
+        for (Item item : items) {
+            if (item.getName().equals(name)) {
+                items.remove(item);
+                return item;
             }
         }
         return null;
     }
 
-    public void addNpc(NPC npc) { npcs.add(npc); }
-
     public NPC getNpc(String name) {
-        for (NPC n : npcs) {
-            if (n.getName().equals(name)) return n;
+        name = name.toLowerCase();
+
+        for (NPC npc : npcs) {
+            if (npc.getName().equals(name)) {
+                return npc;
+            }
         }
         return null;
     }
 
-    public String getName() { return name; }
-    public String getId() { return id; }
 }
