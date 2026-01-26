@@ -2,8 +2,8 @@ package game;
 
 public class Main {
     public static void main(String[] args) {
-        GameData gameData = GameData.loadGameDataFromResources("/world.json");
-        Game game = new Game();
+        World world = World.loadGameDataFromResources("/world.json");
+        Game game = new Game(world);
         game.run();
     }
 }
