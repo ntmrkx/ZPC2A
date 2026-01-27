@@ -2,13 +2,13 @@ package game.command;
 
 import game.Game;
 import game.command.Command;
-import game.command.CommandProcessor;
+import game.command.Console;
 
 public class HelpCommand implements Command {
 
-    private  CommandProcessor processor;
+    private Console processor;
 
-    public HelpCommand(CommandProcessor processor) {
+    public HelpCommand(Console processor) {
         this.processor = processor;
     }
 
