@@ -11,16 +11,6 @@ public class TakeCommand implements Command {
     public String help() { return "Take an item: take <name>"; }
 
     @Override
-    public String getName() {
-        return "";
-    }
-
-    @Override
-    public String getDescription() {
-        return "";
-    }
-
-    @Override
     public void execute(Game game, String arg) {
         if (arg.isBlank()) {
             System.out.println("Using: take <name>");

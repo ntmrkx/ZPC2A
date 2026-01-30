@@ -1,33 +1,27 @@
 package game.command;
 
 import game.Game;
-import game.command.Command;
-import game.command.Console;
 
 public class HelpCommand implements Command {
 
-    private Console processor;
+    private final Console console;
 
-    public HelpCommand(Console processor) {
-        this.processor = processor;
-    }
-
-    public String name() { return "help"; }
-
-    public String help() { return "Writes commands list"; }
-
-    @Override
-    public String getName() {
-        return "";
+    public HelpCommand(Console console) {
+        this.console = console;
     }
 
     @Override
-    public String getDescription() {
-        return "";
+    public String name() {
+        return "help";
+    }
+
+    @Override
+    public String help() {
+        return "writes commands list";
     }
 
     @Override
     public void execute(Game game, String arg) {
-        processor.printHelp();
+        console.printHelp();
     }
 }

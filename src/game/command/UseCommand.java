@@ -11,16 +11,6 @@ public class UseCommand implements Command {
     public String help() { return "Use item: use <item> [cil]"; }
 
     @Override
-    public String getName() {
-        return "";
-    }
-
-    @Override
-    public String getDescription() {
-        return "";
-    }
-
-    @Override
     public void execute(Game game, String arg) {
         if (arg.isBlank()) {
             System.out.println("Using: use <item> [cil]");

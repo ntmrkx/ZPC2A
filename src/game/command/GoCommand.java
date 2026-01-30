@@ -1,45 +1,35 @@
 package game.command;
 
-import game.World;
-import game.command.Command;
-import game.model.Player;
 import game.Game;
+import game.Location;
 
 public class GoCommand implements Command {
 
-    private World game;
-    private Player player;
-
-
-    public String go(String exit) {
-        for (int i = 0; i < game.getLocations().size(); i++) {
-            if (game.getLocations().get(i).getName().contains(exit.toLowerCase().trim())) {
-                if (player.getCurrentLocation().getExits().contains(game.getLocations().get(i).getId())) {
-                    player.setCurrentLocation(game.getLocations().get(i));
-                    System.out.println("Current location: " + player.getCurrentLocation());
-                }
-            }
-        }
-        return "smthn";
+    public String name() {
+        return "go";
     }
 
-    public GoCommand(World game, Player player) {
-        this.game = game;
-        this.player = player;
-    }
-
-    @Override
-    public String getName() {
-        return "";
-    }
-
-    @Override
-    public String getDescription() {
-        return "";
+    public String help() {
+        return "go <location name>";
     }
 
     @Override
     public void execute(Game game, String argument) {
+        if (argument == null || argument.isBlank()) {
+            System.out.println("Usage: go <location>");
+            return;
+        }
+
+        Location target = game.getWorld().findByName(argument);
+        if (target == null) {
+            System.out.println("No such location.");
+            return;
+        }
+
+        if (!game.getCurrentLocation().getExits().contains(target.getId())) {
+            System.out.println("You cannot go there from here.");
+            return;
+        }
 
     }
 }
