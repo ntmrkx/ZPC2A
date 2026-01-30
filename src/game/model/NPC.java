@@ -1,6 +1,7 @@
 package game.model;
 
 public class NPC {
+
     private String name;
     private String text;
 
@@ -9,6 +10,11 @@ public class NPC {
         this.text = text;
     }
 
-    public String getName() { return name; }
-    public String talk() { return text; }
+    public String getName() {
+        return name;
+    }
+
+    public String talk() {
+        return text;
+    }
 }
