@@ -5,5 +5,5 @@ import game.Game;
 public interface Command {
     String name();
     String help();
-    void execute(Game game, String arg);
+    String execute(Game game, String arg);
 }
