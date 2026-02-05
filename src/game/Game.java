@@ -3,6 +3,7 @@ package game;
 import game.command.Console;
 import game.command.*;
 import game.model.Player;
+import game.model.NPC;
 
 import java.util.Scanner;
 
@@ -27,6 +28,8 @@ public class Game {
 
         console = new Console();
         registerCommands();
+
+        initNPCs();
 
         scanner = new Scanner(System.in);
     }
@@ -114,6 +117,34 @@ public class Game {
         return false;
         //TODO
     }
+
+    private void initNPCs() {
+
+        Location hall = world.findByName("Hall");
+        hall.addNpc(new NPC(
+                "guard",
+                "Welcome to the Hall. Your journey begins here."
+        ));
+
+        Location servers = world.findByName("Servers");
+        servers.addNpc(new NPC(
+                "admin",
+                "These servers keep the whole world running."
+        ));
+
+        Location backrooms = world.findByName("Backrooms");
+        backrooms.addNpc(new NPC(
+                "stranger",
+                "You should not be here... but now it is too late."
+        ));
+
+        Location luba = world.findByName("Luba");
+        luba.addNpc(new NPC(
+                "luba",
+                "You made it. This is the end of your journey."
+        ));
+    }
+
 
 
 }
