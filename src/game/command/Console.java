@@ -18,13 +18,17 @@ public class Console {
 
         for (Command command : commands) {
             if (command.name().equals(commandName)) {
-                command.execute(game, parsed[1]);
+                String out = command.execute(game, parsed[1]);
+                if (out != null && !out.isBlank()) {
+                    System.out.println(out);
+                }
                 return;
             }
         }
 
         System.out.println("Unknown command! Type 'help'.");
     }
+
 
     private String[] parse(String input) {
 
