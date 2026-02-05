@@ -2,7 +2,7 @@ package game.model;
 
 public class Item {
 
-    private final String name;
+    private String name;
 
     public Item(String name) {
         this.name = name.toLowerCase();

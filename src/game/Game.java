@@ -2,8 +2,7 @@ package game;
 
 import game.command.Console;
 import game.command.*;
-import game.model.Player;
-import game.model.NPC;
+import game.model.*;
 
 import java.util.Scanner;
 
@@ -30,6 +29,7 @@ public class Game {
         registerCommands();
 
         initNPCs();
+        initItems();
 
         scanner = new Scanner(System.in);
     }
@@ -144,6 +144,31 @@ public class Game {
                 "You made it. This is the end of your journey."
         ));
     }
+
+    private void initItems() {
+
+        world.findByName("Hall")
+                .addItem(new Item("badge"));
+
+        world.findByName("Archive")
+                .addItem(new Item("oldbook"));
+
+        world.findByName("Servers")
+                .addItem(new Item("usb"));
+
+        world.findByName("Store")
+                .addItem(new Item("coin"));
+
+        world.findByName("Backrooms")
+                .addItem(new Item("note"));
+
+        world.findByName("Office")
+                .addItem(new Item("pen"));
+
+        world.findByName("Luba")
+                .addItem(new Item("trophy"));
+    }
+
 
 
 
