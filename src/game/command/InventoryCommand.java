@@ -10,7 +10,8 @@ public class InventoryCommand implements Command {
     public String help() { return "writes items in inventory"; }
 
     @Override
-    public void execute(Game game, String arg) {
-        game.getPlayer().getInventory().print();
+    public String execute(Game game, String arg) {
+        return game.getPlayer().getInventory().asText();
     }
+
 }

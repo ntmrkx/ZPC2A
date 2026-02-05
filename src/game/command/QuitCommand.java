@@ -10,8 +10,9 @@ public class QuitCommand implements Command {
     public String help() { return "finishes the game"; }
 
     @Override
-    public void execute(Game game, String arg) {
-        System.out.println("The end.");
+    public String execute(Game game, String arg) {
         game.stop();
+        return "The end.";
     }
+
 }

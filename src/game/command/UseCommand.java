@@ -11,21 +11,15 @@ public class UseCommand implements Command {
     public String help() { return "Use item: use <item> [cil]"; }
 
     @Override
-    public void execute(Game game, String arg) {
-        if (arg.isBlank()) {
-            System.out.println("Using: use <item> [cil]");
-            return;
-        }
+    public String execute(Game game, String arg) {
+        if (arg == null || arg.isBlank()) return "Using: use <item>";
 
-        String[] parts = arg.split("\\s+", 2);
-        String itemName = parts[0].toLowerCase();
-        String target = (parts.length > 1) ? parts[1].toLowerCase() : "";
+        String itemName = arg.trim().toLowerCase().split(" ")[0];
 
-        Item item = game.getPlayer().getInventory().get(itemName);
-        if (item == null) {
-            System.out.println("You don't have that item.");
-            return;
-        }
+        Item item = game.getPlayer().getInventory().remove(itemName);
+        if (item == null) return "You don't have that item.";
 
+        return "You used: " + item.getName();
     }
+
 }

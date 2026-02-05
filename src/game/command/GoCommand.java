@@ -14,22 +14,24 @@ public class GoCommand implements Command {
     }
 
     @Override
-    public void execute(Game game, String argument) {
+    public String execute(Game game, String argument) {
         if (argument == null || argument.isBlank()) {
-            System.out.println("Usage: go <location>");
-            return;
+            return "Usage: go <location>";
         }
 
         Location target = game.getWorld().findByName(argument);
         if (target == null) {
-            System.out.println("No such location.");
-            return;
+            return "No such location.";
         }
 
         if (!game.getCurrentLocation().getExits().contains(target.getId())) {
-            System.out.println("You cannot go there from here.");
-            return;
+            return "You cannot go there from here.";
         }
 
+        game.setCurrentLocation(target);
+        return game.describeLocation();
     }
+
+
 }
+

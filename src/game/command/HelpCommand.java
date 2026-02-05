@@ -21,7 +21,8 @@ public class HelpCommand implements Command {
     }
 
     @Override
-    public void execute(Game game, String arg) {
-        console.printHelp();
+    public String execute(Game game, String arg) {
+        return console.getHelpText();
     }
+
 }

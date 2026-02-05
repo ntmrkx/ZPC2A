@@ -11,18 +11,12 @@ public class TalkCommand implements Command {
     public String help() { return "Talk to NPC: talk <name>"; }
 
     @Override
-    public void execute(Game game, String arg) {
-        if (arg.isBlank()) {
-            System.out.println("Using: talk <name>");
-            return;
-        }
+    public String execute(Game game, String arg) {
+        if (arg == null || arg.isBlank()) return "Using: talk <name>";
 
         NPC npc = game.getCurrentLocation().getNpc(arg.toLowerCase());
-        if (npc == null) {
-            System.out.println("There is no NPC with that name.");
-            return;
-        }
+        if (npc == null) return "There is no NPC with that name.";
 
-        System.out.println(npc.talk());
+        return npc.talk();
     }
 }

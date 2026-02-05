@@ -11,19 +11,14 @@ public class TakeCommand implements Command {
     public String help() { return "Take an item: take <name>"; }
 
     @Override
-    public void execute(Game game, String arg) {
-        if (arg.isBlank()) {
-            System.out.println("Using: take <name>");
-            return;
-        }
+    public String execute(Game game, String arg) {
+        if (arg == null || arg.isBlank()) return "Using: take <name>";
 
         Item item = game.getCurrentLocation().takeItem(arg.toLowerCase());
-        if (item == null) {
-            System.out.println("This item is not here.");
-            return;
-        }
+        if (item == null) return "This item is not here.";
 
         game.getPlayer().getInventory().add(item);
-        System.out.println("You took: " + item.getName());
+        return "You took: " + item.getName();
     }
+
 }
