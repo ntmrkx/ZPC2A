@@ -33,14 +33,18 @@ public class Game {
 
     private void registerCommands() {
         console.register(new GoCommand());
-        //console.register(new TakeCommand());
-        //console.register(new InventoryCommand());
-        //console.register(new HelpCommand(console));
-        //console.register(new QuitCommand());
+        console.register(new TakeCommand());
+        console.register(new InventoryCommand());
+        console.register(new HelpCommand(console));
+        console.register(new QuitCommand());
+        console.register(new TalkCommand());
+        console.register(new UseCommand());
     }
 
+
     public void run() {
-        System.out.println("Welcome!");
+        System.out.println("Welcome to the LAST MISTAKE!");
+        System.out.println("To reach the end you will need to find a Luboshh, he ");
         System.out.println(currentLocation.getDescription());
 
         running = true;
@@ -64,8 +68,6 @@ public class Game {
         running = false;
     }
 
-    // ===== getters for commands =====
-
     public World getWorld() {
         return world;
     }
@@ -81,4 +83,29 @@ public class Game {
     public Player getPlayer() {
         return player;
     }
+
+    public String describeLocation() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(currentLocation.getDescription()).append("\n");
+
+        sb.append("You can go to: ");
+        if (currentLocation.getExits().isEmpty()) {
+            sb.append("(nowhere)");
+        } else {
+            for (Integer id : currentLocation.getExits()) {
+                Location l = world.findById(id);
+                if (l != null) sb.append(l.getName()).append(", ");
+            }
+            if (sb.toString().endsWith(", ")) {
+                sb.setLength(sb.length() - 2);
+            }
+        }
+        sb.append("\n");
+
+        sb.append("Items here: ").append(currentLocation.itemsAsText()).append("\n");
+        sb.append("NPC here: ").append(currentLocation.npcsAsText());
+
+        return sb.toString();
+    }
+
 }
