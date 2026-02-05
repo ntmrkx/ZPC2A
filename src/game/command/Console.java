@@ -54,11 +54,14 @@ public class Console {
         return new String[]{command, argument};
     }
 
-    public void printHelp() {
+    public String getHelpText() {
+        StringBuilder sb = new StringBuilder();
         for (Command c : commands) {
-            System.out.println(c.name() + " - " + c.help());
+            sb.append(c.name()).append(" - ").append(c.help()).append("\n");
         }
+        return sb.toString();
     }
+
 
 
 }
