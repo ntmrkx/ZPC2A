@@ -29,9 +29,12 @@ public class GoCommand implements Command {
         }
 
         game.setCurrentLocation(target);
+
+        if (game.checkWin()) {
+            game.stop();
+            return "You solved the secrets of Luba. YOU WON!";
+        }
         return game.describeLocation();
     }
-
-
 }
 

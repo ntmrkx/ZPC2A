@@ -87,7 +87,6 @@ public class Game {
     public String describeLocation() {
         StringBuilder sb = new StringBuilder();
         sb.append(currentLocation.getDescription()).append("\n");
-
         sb.append("You can go to: ");
         if (currentLocation.getExits().isEmpty()) {
             sb.append("(nowhere)");
@@ -107,5 +106,14 @@ public class Game {
 
         return sb.toString();
     }
+
+    public boolean checkWin() {
+        if (currentLocation.getId() == 7) {
+            return true;
+        }
+        return false;
+        //TODO
+    }
+
 
 }
