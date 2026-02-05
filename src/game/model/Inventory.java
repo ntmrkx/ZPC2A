@@ -44,4 +44,11 @@ public class Inventory {
             System.out.println("- " + item.getName());
         }
     }
+    public String asText() {
+        if (items.isEmpty()) return "Inventory is empty.";
+        StringBuilder sb = new StringBuilder("Inventory:\n");
+        for (Item i : items) sb.append("- ").append(i.getName()).append("\n");
+        return sb.toString();
+    }
+
 }
