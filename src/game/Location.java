@@ -50,4 +50,26 @@ public class Location {
         npcs.add(npc);
     }
 
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    public String itemsAsText() {
+        if (items.isEmpty()) return "(none)";
+        StringBuilder sb = new StringBuilder();
+        for (Item i : items) sb.append(i.getName()).append(", ");
+        sb.setLength(sb.length() - 2);
+        return sb.toString();
+    }
+
+    public String npcsAsText() {
+        if (npcs.isEmpty()) return "(none)";
+        StringBuilder sb = new StringBuilder();
+        for (NPC n : npcs) sb.append(n.getName()).append(", ");
+        sb.setLength(sb.length() - 2);
+        return sb.toString();
+    }
+
+
+
 }
