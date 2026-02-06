@@ -1,3 +1,9 @@
+/**
+ * Command that allows user finish the Game.
+ *
+ * @author Myroslav Tsykunov
+ */
+
 package game.command;
 
 import game.Game;

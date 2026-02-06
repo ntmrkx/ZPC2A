@@ -1,3 +1,9 @@
+/**
+ * Command that prints list of possible commands and their usage.
+ *
+ * @author Myroslav Tsykunov
+ */
+
 package game.command;
 
 import game.Game;

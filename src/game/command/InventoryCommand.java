@@ -1,3 +1,9 @@
+/**
+ * Command that shows Items in Inventory to player.
+ *
+ * @author Myroslav Tsykunov
+ */
+
 package game.command;
 
 import game.Game;

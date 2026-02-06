@@ -1,7 +1,12 @@
+/**
+ * Command that allows player to use items.
+ *
+ * @author Myroslav Tsykunov
+ */
+
 package game.command;
 
 import game.Game;
-import game.command.Command;
 import game.model.Item;
 
 public class UseCommand implements Command {

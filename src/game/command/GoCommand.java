@@ -1,3 +1,9 @@
+/**
+ * Command that moves the player to another location.
+ *
+ * @author Myroslav Tsykunov
+ */
+
 package game.command;
 
 import game.Game;

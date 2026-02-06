@@ -1,7 +1,12 @@
+/**
+ * Command that allows  player to speak with NPCs.
+ *
+ * @author Myroslav Tsykunov
+ */
+
 package game.command;
 
 import game.Game;
-import game.command.Command;
 import game.model.NPC;
 
 public class TalkCommand implements Command {
