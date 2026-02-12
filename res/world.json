@@ -40,7 +40,7 @@
       "id": 6,
       "name": "Office",
       "description": "feels like you spent your whole life here..huh?",
-      "exits": [5,3],
+      "exits": [5,4,1],
       "npc": false
     },
     {
