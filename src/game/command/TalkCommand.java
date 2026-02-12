@@ -16,12 +16,26 @@ public class TalkCommand implements Command {
     public String help() { return "Talk to NPC: talk <name>"; }
 
     @Override
-    public String execute(Game game, String arg) {
-        if (arg == null || arg.isBlank()) return "Using: talk <name>";
+    public String execute(Game game, String argument) {
 
-        NPC npc = game.getCurrentLocation().getNpc(arg.toLowerCase());
-        if (npc == null) return "There is no NPC with that name.";
+        if (argument == null || argument.isBlank()) {
+            return "Usage: talk <npc> [answer]";
+        }
+
+        String[] parts = argument.split(" ", 2);
+        String npcName = parts[0].toLowerCase();
+        String answer = (parts.length > 1) ? parts[1].trim() : "";
+
+        NPC npc = game.getCurrentLocation().getNpc(npcName);
+        if (npc == null) {
+            return "There is no NPC with that name here.";
+        }
+
+        if (npcName.equals("luba")) {
+            return game.talkToLuba(answer);
+        }
 
         return npc.talk();
     }
+
 }
