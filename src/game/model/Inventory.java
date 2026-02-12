@@ -51,4 +51,9 @@ public class Inventory {
         return sb.toString();
     }
 
+    public boolean has(String name) {
+        return get(name.toLowerCase()) != null;
+    }
+
+
 }
