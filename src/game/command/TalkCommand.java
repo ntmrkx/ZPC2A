@@ -1,5 +1,5 @@
 /**
- * Command that allows  player to speak with NPCs.
+ * Command that allows player to speak with NPCs.
  *
  * @author Myroslav Tsykunov
  */

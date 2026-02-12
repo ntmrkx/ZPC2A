@@ -7,7 +7,6 @@
 package game.command;
 
 import game.Game;
-import game.command.Command;
 
 public class QuitCommand implements Command {
 
