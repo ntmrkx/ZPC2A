@@ -1,6 +1,6 @@
 # 🧩 Last Mistake – ZPC2A
 
-📖 Project Description
+## 📖 Project Description
 This project is a console-based text adventure game written in Java.
 The player moves between locations, collects items, interacts with NPCs, and completes a quest to win the game.
 
