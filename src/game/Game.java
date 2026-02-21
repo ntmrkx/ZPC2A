@@ -14,6 +14,9 @@ public class Game {
     private boolean running;
     private boolean lubaQuestStarted = false;
     private boolean lubaQuestSolved = false;
+    private boolean backroomsUnlocked = false;
+    private boolean lubaUnlocked = false;
+
 
 
     private Console console;
@@ -212,24 +215,66 @@ public class Game {
 
 
     public String canEnter(Location target) {
+
         String name = target.getName().toLowerCase();
 
-        if (name.equals("backrooms") && !player.getInventory().has("badge")) {
-            return "This place is locked. You need: badge";
+        if (name.equals("backrooms") && !backroomsUnlocked) {
+            return "The door is locked. Maybe something can unlock it.";
         }
 
-        if (name.equals("luba")) {
-            boolean hasUsb = player.getInventory().has("usb");
-            boolean hasNote = player.getInventory().has("note");
-            if (!hasUsb || !hasNote) {
-                return "Luba is locked. You need: "
-                        + (hasUsb ? "" : "usb ")
-                        + (hasNote ? "" : "note ");
-            }
+        if (name.equals("luba") && !lubaUnlocked) {
+            return "Luba is not accessible yet.";
         }
 
         return null;
     }
+
+
+    public String giveItemToNpc(Item item, String npcName) {
+
+        NPC npc = currentLocation.getNpc(npcName);
+
+        if (npc == null) {
+            return "That NPC is not here.";
+        }
+
+        if (npcName.equals("luba") && item.getName().equals("note")) {
+
+            player.getInventory().remove(item.getName());
+            lubaQuestSolved = true;
+            stop();
+
+            return "Luba: This is what I needed. You win!";
+        }
+
+        return "They don't want this item.";
+    }
+
+    public String useItem(Item item) {
+
+        String name = item.getName();
+
+        if (name.equals("badge")
+                && currentLocation.getName().equalsIgnoreCase("Office")) {
+
+            backroomsUnlocked = true;
+            return "You used the badge. Backrooms are now unlocked.";
+        }
+
+        if (name.equals("usb")
+                && currentLocation.getName().equalsIgnoreCase("Backrooms")) {
+
+            lubaUnlocked = true;
+            return "System activated. Luba is now accessible.";
+        }
+
+        return "You can't use that here.";
+    }
+
+
+
+
+
 
 
 }

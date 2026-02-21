@@ -17,14 +17,26 @@ public class UseCommand implements Command {
 
     @Override
     public String execute(Game game, String arg) {
-        if (arg == null || arg.isBlank()) return "Using: use <item>";
 
-        String itemName = arg.trim().toLowerCase().split(" ")[0];
+        if (arg == null || arg.isBlank()) {
+            return "Usage: use <item> [npc]";
+        }
 
-        Item item = game.getPlayer().getInventory().remove(itemName);
-        if (item == null) return "You don't have that item.";
+        String[] parts = arg.split(" ", 2);
+        String itemName = parts[0].toLowerCase();
+        String targetNpc = (parts.length > 1) ? parts[1].toLowerCase() : null;
 
-        return "You used: " + item.getName();
+        Item item = game.getPlayer().getInventory().get(itemName);
+
+        if (item == null) {
+            return "You don't have this item.";
+        }
+
+        if (targetNpc != null) {
+            return game.giveItemToNpc(item, targetNpc);
+        }
+
+        return game.useItem(item);
     }
 
 }
