@@ -34,7 +34,7 @@ Before starting, make sure you have:
 - 🔧 Java added to your system PATH
   
 You can check if Java is installed by running:
-java -version
+> java -version
 
 If a Java version appears, you're good to go 👍
 
@@ -42,10 +42,10 @@ If a Java version appears, you're good to go 👍
 
 Open PowerShell or Command Prompt.
 Navigate to the folder containing the generated JAR file:
+> cd out/artifacts/ZPC2A_jar
 
-cd out/artifacts/ZPC2A_jar
 Start the game with:
-java -jar ZPC2A.jar
+> java -jar ZPC2A.jar
 
 🎉 The program will launch in the console.
 
@@ -55,4 +55,4 @@ Make sure Java is installed correctly.
 
 Ensure Java is added to your system PATH.
 
-Enjoy the game and have fun exploring! 🌍✨
+## Enjoy the game and have fun exploring! 🌍✨
