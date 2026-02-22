@@ -53,8 +53,14 @@ public class Game {
 
     public void run() {
         System.out.println("Welcome to the LAST MISTAKE!");
+        System.out.println("=====================================================");
         System.out.println("To reach the end you will need to find a Luboshh.");
-        System.out.println(currentLocation.getDescription());
+        System.out.println("Now you are in the Hall, good luck!");
+        System.out.println("=====================================================");
+        System.out.println("such a long hall, where your story starts or finishes\n" +
+                "You can go to: Archive, Servers\n" +
+                "Items here: badge\n" +
+                "NPC here: guard");
 
         running = true;
 
@@ -141,13 +147,15 @@ public class Game {
         Location backrooms = world.findByName("Backrooms");
         backrooms.addNpc(new NPC(
                 "stranger",
-                "You should not be here... but now it is too late."
+                "'Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.'\n" +
+                        "- Marcus Aurelius"
         ));
 
         Location luba = world.findByName("Luba");
         luba.addNpc(new NPC(
                 "luba",
-                "You made it. This is the end of your journey."
+                "'To live is to suffer, to survive is to find some meaning in the suffering.'\n" +
+                        "- Friedrich Nietzsche"
         ));
     }
 
