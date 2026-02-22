@@ -16,6 +16,7 @@ public class Game {
     private boolean lubaQuestSolved = false;
     private boolean backroomsUnlocked = false;
     private boolean lubaUnlocked = false;
+    private boolean officeUnlocked = false;
 
 
 
@@ -165,7 +166,7 @@ public class Game {
                 .addItem(new Item("badge"));
 
         world.findByName("Archive")
-                .addItem(new Item("oldbook"));
+                .addItem(new Item("code"));
 
         world.findByName("Servers")
                 .addItem(new Item("usb"));
@@ -221,11 +222,15 @@ public class Game {
         String name = target.getName().toLowerCase();
 
         if (name.equals("backrooms") && !backroomsUnlocked) {
-            return "The door is locked. Maybe something can unlock it.";
+            return "Unauthorized try! Use original staff badge!";
         }
 
         if (name.equals("luba") && !lubaUnlocked) {
-            return "Luba is not accessible yet.";
+            return "System locked! Use usb do delete the virus.";
+        }
+
+        if (name.equals("office") && !officeUnlocked) {
+            return "Office is locked. Unlock with code!";
         }
 
         return null;
@@ -268,6 +273,13 @@ public class Game {
 
             lubaUnlocked = true;
             return "System activated. Luba is now accessible.";
+        }
+
+        if (name.equals("code")
+                && currentLocation.getName().equalsIgnoreCase("Store")) {
+
+            officeUnlocked = true;
+            return "Entrance permitted!";
         }
 
         return "You can't use that here.";
