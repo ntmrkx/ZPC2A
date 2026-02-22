@@ -46,7 +46,7 @@
     {
       "id": 7,
       "name": "Luba",
-      "description": "your biggest fear, your biggest win",
+      "description": "your biggest fear, your biggest win, take the trophy before you leave",
       "exits": [5],
       "npc": true
     }
