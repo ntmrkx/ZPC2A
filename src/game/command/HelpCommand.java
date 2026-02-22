@@ -3,12 +3,8 @@ package game.command;
 import game.Game;
 
 /**
- * Command that displays all available commands
- * along with their descriptions.
- * This command retrieves registered commands
- * from the Console class and returns formatted help text.
+ * Command that displays all available commands.
  * Usage: help
- * Part of the Command pattern implementation.
  *
  * @author Myroslav Tsykunov
  */

@@ -2,19 +2,17 @@
  * Represents the player's inventory.
  * The inventory stores items collected by the player during the game.
  * It allows adding, removing, checking and displaying items.
- * Part of the game model layer.
  *
  * @author Myroslav Tsykunov
  */
 package game.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Inventory {
 
     /** List of items currently stored in the inventory */
-    private final List<Item> items = new ArrayList<>();
+    private  ArrayList<Item> items = new ArrayList<>();
 
     /**
      * Adds an item to the inventory.

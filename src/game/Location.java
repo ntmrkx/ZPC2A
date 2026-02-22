@@ -7,20 +7,19 @@ import game.model.*;
 /**
  * Represents a location (room) in the game world.
  * Each location has:
- * - unique identifier (id)
+ * - ID
  * - name
  * - description
  * - list of connected locations (exits)
  * - items located inside the room
  * - NPCs present in the room
- * Locations are loaded from JSON and then populated
- * with items and NPCs during game initialization.
+ * Locations are loaded from JSON.
  *
  * @author Myroslav Tsykunov
  */
 public class Location {
 
-    /** Unique identifier of the location */
+    /** ID of the location */
     private int id;
 
     /** Name of the location */
@@ -32,7 +31,7 @@ public class Location {
     /** List of connected location IDs */
     private List<Integer> exits = new ArrayList<>();
 
-    /** Indicates whether the location contains NPC (from JSON) */
+    /** Indicates whether the location contains NPC */
     private boolean npc;
 
     /** Items available in this location */
@@ -62,7 +61,7 @@ public class Location {
     public List<Integer> getExits() { return exits; }
 
     /**
-     * @return true if location contains NPC (JSON flag)
+     * @return true if location contains NPC
      */
     public boolean hasNpc() { return npc; }
 

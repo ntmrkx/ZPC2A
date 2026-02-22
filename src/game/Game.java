@@ -123,13 +123,6 @@ public class Game {
         return sb.toString();
     }
 
-    public boolean checkWin() {
-        if (currentLocation.getId() == 7) {
-            return true;
-        }
-        return false;
-        //TODO
-    }
 
     private void initNPCs() {
 
@@ -284,11 +277,4 @@ public class Game {
 
         return "You can't use that here.";
     }
-
-
-
-
-
-
-
 }

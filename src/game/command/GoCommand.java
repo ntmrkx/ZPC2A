@@ -9,10 +9,7 @@ import game.Location;
  * 1. Whether the target location exists.
  * 2. Whether the location is connected to the current one.
  * 3. Whether the location is locked and requires specific items.
- * If all conditions are satisfied, the player is moved
- * and the new location description is returned.
- * Usage: go <location name>
- * Part of the Command pattern implementation.
+ * If all conditions are satisfied, the player is moved.
  *
  * @author Myroslav Tsykunov
  */

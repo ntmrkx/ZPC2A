@@ -1,7 +1,7 @@
 package game.model;
 
 /**
- * Represents a non-player character (NPC) in the game.
+ * Represents an NPC in the game.
  * NPCs are located in specific locations and can interact
  * with the player through dialogue.
  * Each NPC has a name and predefined dialogue text.
@@ -10,7 +10,7 @@ package game.model;
  */
 public class NPC {
 
-    /** Name of the NPC (stored in lowercase) */
+    /** Name of the NPC */
     private String name;
 
     /** Dialogue text spoken by the NPC */

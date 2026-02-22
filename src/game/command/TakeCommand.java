@@ -7,9 +7,6 @@ import game.model.Item;
  * Command that allows the player to take an item
  * from the current location and add it to the inventory.
  * Usage: take <item name>
- * If the item is not present in the location,
- * an error message is returned.
- * Part of the Command pattern implementation.
  *
  * @author Myroslav Tsykunov
  */

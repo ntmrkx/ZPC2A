@@ -3,7 +3,7 @@ package game.model;
 /**
  * Represents an item in the game world.
  * Items can be collected by the player and stored
- * in the inventory. Each item has a unique name.
+ * in the inventory.
  *
  * @author Myroslav Tsykunov
  */

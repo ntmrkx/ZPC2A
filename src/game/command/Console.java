@@ -2,7 +2,6 @@ package game.command;
 
 import game.Game;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Handles user input and command execution.
@@ -17,7 +16,7 @@ import java.util.List;
 public class Console {
 
     /** List of registered commands */
-    private List<Command> commands = new ArrayList<>();
+    private ArrayList<Command> commands = new ArrayList<>();
 
     /**
      * Registers a new command in the console.
@@ -52,7 +51,7 @@ public class Console {
     }
 
     /**
-     * Parses raw user input into command name and argument.
+     * Parses user input into command name and argument.
      *
      * @param input raw input string
      * @return String array where:
@@ -72,7 +71,7 @@ public class Console {
         }
 
         String command = input.substring(0, spaceIndex).toLowerCase();
-        String argument = input.substring(spaceIndex + 1).trim(); // <- zbytek řádku, ne jen 1 slovo
+        String argument = input.substring(spaceIndex + 1).trim();
 
         return new String[]{command, argument};
     }
