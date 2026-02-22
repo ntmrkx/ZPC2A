@@ -52,7 +52,7 @@ public class Game {
 
     /** Initializes the game. */
     private void init() {
-        world = World.loadGameDataFromResources("res/world.json");
+        world = World.loadGameDataFromResources("/world.json");
         currentLocation = world.getStartLocation();
         player = new Player();
 

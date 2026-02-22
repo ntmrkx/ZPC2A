@@ -2,9 +2,10 @@ package game;
 
 import com.google.gson.Gson;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
 
 public class World {
     private ArrayList<Location> locations;
@@ -14,14 +15,13 @@ public class World {
         //Vytvoření objektu pro práci s JSON souborem
         Gson gson = new Gson();
 
-        //Načtení souboru gamedata.json, musí být ve složce res/resources, ta musí být označena jako resource složka projektu
-        try (Reader rd = new FileReader(resourcePath)) {
-
-            //Přečte celý JSON a vytvoří instanci GameData, naplní vlastnosti podle názvů klíčů v JSONU, vrátí se hotová třída GameData
-            return gson.fromJson(
-                    rd,
-                    World.class
-            );
+            try (var is = World.class.getResourceAsStream(resourcePath)) {
+                if (is == null) {
+                    throw new RuntimeException("Resource not found: " + resourcePath);
+                }
+                try (Reader rd = new InputStreamReader(is, StandardCharsets.UTF_8)) {
+                    return gson.fromJson(rd, World.class);
+                }
 
         } catch (Exception e) {
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
