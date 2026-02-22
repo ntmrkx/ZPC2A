@@ -191,13 +191,7 @@ public class Game {
 
         if (!lubaQuestStarted) {
             lubaQuestStarted = true;
-            return """
-                Luba: To win, solve my riddle.
-                I speak without a mouth and hear without ears.
-                I have no body, but I come alive with wind.
-                What am I?
-                (answer using: talk luba <answer>)
-                """;
+            return " Luba: To win, help me to make my code work.\n 'public class Main {' \n 'public ... void main(String[] args) {'\n 'System.out.println(\"HELLO WORLD!\");'\n What is missing? \n (answer using: talk luba <answer>) ";
         }
 
         boolean hasBadge = player.getInventory().has("badge");
@@ -212,13 +206,13 @@ public class Game {
             return "Luba: Answer my riddle using: talk luba <answer>";
         }
 
-        if (answer.equalsIgnoreCase("echo")) {
+        if (answer.equalsIgnoreCase("static")) {
             lubaQuestSolved = true;
             stop();
-            return "Luba: Correct. You solved my riddle. YOU WIN!";
+            return "Luba: That works!. You helped me. YOU WIN!";
         }
 
-        return "Luba: That is not correct. Try again.";
+        return "Luba: Still not working. Try again.";
     }
 
 

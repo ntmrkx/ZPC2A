@@ -60,25 +60,19 @@ public class Console {
      *         index 1 = argument
      */
     private String[] parse(String input) {
-
-        if (input == null) {
-            return new String[]{"", ""};
-        }
+        if (input == null) return new String[]{"", ""};
 
         input = input.trim();
+        if (input.isEmpty()) return new String[]{"", ""};
 
-        if (input.isEmpty()) {
-            return new String[]{"", ""};
+        int spaceIndex = input.indexOf(' ');
+
+        if (spaceIndex == -1) {
+            return new String[]{input.toLowerCase(), ""};
         }
 
-        String[] parts = input.split(" ");
-
-        String command = parts[0].toLowerCase();
-        String argument = "";
-
-        if (parts.length > 1) {
-            argument = parts[1].toLowerCase();
-        }
+        String command = input.substring(0, spaceIndex).toLowerCase();
+        String argument = input.substring(spaceIndex + 1).trim(); // <- zbytek řádku, ne jen 1 slovo
 
         return new String[]{command, argument};
     }
