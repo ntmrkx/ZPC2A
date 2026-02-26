@@ -19,46 +19,20 @@ import game.model.*;
  */
 public class Location {
 
-    /** ID of the location */
+    /** Creating things for using */
     private int id;
-
-    /** Name of the location */
     private String name;
-
-    /** Text description shown to the player */
     private String description;
-
-    /** List of connected location IDs */
-    private List<Integer> exits = new ArrayList<>();
-
-    /** Indicates whether the location contains NPC */
+    private ArrayList<Integer> exits = new ArrayList<>();
     private boolean npc;
+    private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<NPC> npcs = new ArrayList<>();
 
-    /** Items available in this location */
-    private List<Item> items = new ArrayList<>();
-
-    /** NPCs present in this location */
-    private List<NPC> npcs = new ArrayList<>();
-
-    /**
-     * @return location ID
-     */
+    /** Getters*/
     public int getId() { return id; }
-
-    /**
-     * @return location name
-     */
     public String getName() { return name; }
-
-    /**
-     * @return location description
-     */
     public String getDescription() { return description; }
-
-    /**
-     * @return list of connected location IDs
-     */
-    public List<Integer> getExits() { return exits; }
+    public ArrayList<Integer> getExits() { return exits; }
 
     /**
      * @return true if location contains NPC
