@@ -24,7 +24,12 @@ public class TalkCommand implements Command {
 
         String[] parts = argument.split(" ", 2);
         String npcName = parts[0].toLowerCase();
-        String answer = (parts.length > 1) ? parts[1].trim() : "";
+        String answer;
+        if (parts.length > 1) {
+            answer = parts[1].trim();
+        } else {
+            answer = "";
+        }
 
         NPC npc = game.getCurrentLocation().getNpc(npcName);
         if (npc == null) {
