@@ -18,31 +18,17 @@ import java.util.Scanner;
  */
 public class Game {
 
-    /** Loaded game world containing all locations. */
+    /** Creating things for using */
     private World world;
-
-    /** Current location where the player is. */
     private Location currentLocation;
-
-    /** Player as object. */
     private Player player;
-
-    /** Controlling whether the game loop should continue. */
     private boolean running;
-
-    /** Quest for Luba. */
     private boolean lubaQuestStarted = false;
     private boolean lubaQuestSolved = false;
-
-    /** Locked doors. */
     private boolean backroomsUnlocked = false;
     private boolean lubaUnlocked = false;
     private boolean officeUnlocked = false;
-
-    /** Console to register and execute commands. */
     private Console console;
-
-    /** Scanner for reading user input. */
     private Scanner scanner;
 
     /** Initializes everything. */
