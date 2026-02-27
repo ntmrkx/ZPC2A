@@ -24,7 +24,13 @@ public class UseCommand implements Command {
 
         String[] parts = arg.split(" ", 2);
         String itemName = parts[0].toLowerCase();
-        String targetNpc = (parts.length > 1) ? parts[1].toLowerCase() : null;
+
+        String targetNpc;
+        if (parts.length > 1) {
+            targetNpc = parts[1].toLowerCase();
+        } else {
+            targetNpc = null;
+        }
 
         Item item = game.getPlayer().getInventory().get(itemName);
 
