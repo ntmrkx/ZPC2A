@@ -15,17 +15,13 @@ import game.Location;
  */
 public class GoCommand implements Command {
 
-    /**
-     * @return name of the command used in console input
-     */
+
     @Override
     public String name() {
         return "go";
     }
 
-    /**
-     * @return short help description of the command
-     */
+
     @Override
     public String help() {
         return "Moves player to another location: go <location>";
@@ -51,12 +47,12 @@ public class GoCommand implements Command {
             return "No such location.";
         }
 
-        // Check if location is connected (map logic)
+        // Check if location is connected
         if (!game.getCurrentLocation().getExits().contains(target.getId())) {
             return "You cannot go there from here.";
         }
 
-        // Check if location is locked (game logic)
+        // Check if location is locked
         String lockMsg = game.canEnter(target);
         if (lockMsg != null) {
             return lockMsg;
